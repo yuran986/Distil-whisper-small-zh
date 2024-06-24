@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+CUDA_VISIBLE_DEVICES=1,2 accelerate launch --num_processes=2 run_distillation.py \
+  --model_name_or_path "./distil-small-init" \
+  --teacher_model_name_or_path "openai/whisper-small" \
+  --train_dataset_name "./common_voice_16_1_zh-CN_pseudo_labelled+./common_voice_16_1_zh-CN_pseudo_labelled" \
+  --train_split_name "train+validation" \
+  --text_column_name "sentence+sentence" \
+  --train_dataset_samples "7+4" \
+  --eval_dataset_name "./common_voice_16_1_zh-CN_pseudo_labelled" \
+  --eval_split_name "test" \
+  --eval_text_column_name "sentence" \
+  --eval_steps 1000 \
+  --save_steps 1000 \
+  --warmup_steps 50 \
+  --learning_rate 0.0001 \
+  --lr_scheduler_type "constant_with_warmup" \
+  --timestamp_probability 0.2 \
+  --condition_on_prev_probability 0.2 \
+  --language "chinese" \
+  --task "transcribe" \
+  --logging_steps 25 \
+  --save_total_limit 1 \
+  --max_steps 5000 \
+  --wer_threshold 50 \
+  --per_device_train_batch_size 16 \
+  --per_device_eval_batch_size 16 \
+  --dataloader_num_workers 8 \
+  --preprocessing_num_workers 8 \
+  --ddp_timeout 7200 \
+  --dtype "bfloat16" \
+  --attn_implementation "sdpa" \
+  --output_dir "./model" \
+  --do_train True\
+  --do_eval True\
+  --gradient_checkpointing \
+  --overwrite_output_dir True\
+  --predict_with_generate True\
+  --freeze_encoder True \
+  --freeze_embed_positions True\
+  --streaming False \
+  --push_to_hub False
