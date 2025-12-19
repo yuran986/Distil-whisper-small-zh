@@ -2,7 +2,6 @@
 
 <div align="center">
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.10+-red.svg)](https://pytorch.org/)
 [![Transformers](https://img.shields.io/badge/🤗%20Transformers-4.35+-yellow.svg)](https://github.com/huggingface/transformers)
@@ -244,10 +243,6 @@ Distil-whisper-small-zh/
 1. Radford, A., et al. (2022). Robust Speech Recognition via Large-Scale Weak Supervision. arXiv preprint arXiv:2212.04356.
 2. Sanh, V., et al. (2019). DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter. arXiv preprint arXiv:1910.01108.
 3. Hugging Face. (2021). Distil-Whisper: Distilling OpenAI's Whisper for Faster, Smaller Models.
-
-### 📄 License
-
-This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
 
 ---
 
@@ -504,10 +499,6 @@ Whisper-base 和 Whisper-tiny 的模型结构相对简单，知识蒸馏对其�
 ### 🙏 致谢
 
 感谢 OpenAI 提供 Whisper 模型，感谢 Hugging Face 提供 Distil-Whisper 框架和工具支持。
-
-### 📄 许可证
-
-本项目基于 Apache License 2.0 许可证开源 - 详见 LICENSE 文件。
 
 ---
 
