@@ -2,7 +2,7 @@ from transformers import WhisperProcessor, WhisperForConditionalGeneration
 from datasets import load_dataset, Audio
 import data_utils
 
-# 这里的两个路径改成模型路径
+# Change the two paths here to your model paths
 model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-small", low_cpu_mem_usage=True)
 processor = WhisperProcessor.from_pretrained("openai/whisper-small")
 
@@ -13,7 +13,7 @@ common_voice = common_voice.cast_column("audio", Audio(sampling_rate=processor.f
 
 i = 0
 for sample in iter(common_voice):
-    # 此处设置了模型只识别前21个音频
+    # Only process the first 21 audio samples
     if i == 21: break
     inputs = processor(sample["audio"]["array"], sampling_rate=16000, return_tensors="pt")
     input_features = inputs.input_features

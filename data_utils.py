@@ -6,7 +6,7 @@ import torch
 from zhconv import convert
 
 
-# 删除标点符号
+# Remove punctuation
 def remove_punctuation(text: str or List[str]):
     punctuation = '!,.;:?、！，。；：？'
     if isinstance(text, str):
@@ -19,10 +19,10 @@ def remove_punctuation(text: str or List[str]):
             result_text.append(t)
         return result_text
     else:
-        raise Exception(f'不支持该类型{type(text)}')
+        raise Exception(f'Unsupported type: {type(text)}')
 
 
-# 将繁体中文总成简体中文
+# Convert Traditional Chinese to Simplified Chinese
 def to_simple(text: str or List[str]):
     if isinstance(text, str):
         text = convert(text, 'zh-cn')
@@ -34,7 +34,7 @@ def to_simple(text: str or List[str]):
             result_text.append(t)
         return result_text
     else:
-        raise Exception(f'不支持该类型{type(text)}')
+        raise Exception(f'Unsupported type: {type(text)}')
 
 
 @dataclass
